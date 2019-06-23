@@ -1,0 +1,82 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<!--js function-->
+<!--https://www.webdeveloper.com/d/17964-onclick-of-a-button-should-change-the-table-border-color/2-->
+<script type="text/javascript">
+    let count;
+    let n;
+    let random;
+    let timer;
+
+    function go1(){
+        reset();
+        timer = setInterval(setColor, 1*100/2);
+        //alert(timer);
+        }
+
+    function setColor() {
+
+        if(count<=random){
+            
+            count++;
+            if(count<=11){
+                console.log(count);
+                if(count>0) document.getElementById(count-1).style.backgroundColor="white";
+                document.getElementById(count).style.backgroundColor="pink";
+            }else if(count>11){
+                console.log(count);
+                n=count%12;
+                if(n==0) {
+                    document.getElementById(11).style.backgroundColor="white"
+                }else{
+                    document.getElementById(n-1).style.backgroundColor="white"
+                }
+                document.getElementById(n).style.backgroundColor="pink";   
+            }
+
+        }
+    }
+
+    function reset(){
+        for(i=0; i<12; i++) document.getElementById(i).style.backgroundColor="white";
+        count = -1;
+        random = Math.floor(Math.random()*(30-13+1))+13;
+        console.log(random+1);
+        // https://stackoverflow.com/questions/8126466/how-do-i-reset-the-setinterval-timer
+        clearInterval(timer);
+    }
+</script>
+
+
+<!--馬仔台畫面-->
+<!-- icon:
+https://icon-icons.com/icon/pineapple-fruit/81780#128
+https://www.flaticon.com/free-icons/fruit/3  -->
+<h1 align="center">吃吃抽獎馬仔台</h1>
+<table id="mytable" border="10" cellpadding="0" cellspacing="0" style="border-collapse: collapse" align="center">
+    <tr>
+        <td id="0"> <img src="pic1.png">  </td>
+        <td id="1"> <img src="pic2.png">  </td>
+        <td id="2"> <img src="pic3.png">  </td>
+        <td id="3"> <img src="pic4.png">  </td>
+    </tr>
+    <tr>
+        <td id="11"> <img src="prize2.png">  </td>
+        <td onClick="go1()" rowspan="2" colspan="2" align="center"> <input type="image" src="lottery2.jpg"/> </td>
+        <td id="4"> <img src="pic5.png">  </td>
+    </tr>
+    <tr>
+        <td id="10"> <img src="pic6.png">  </td>
+        <td id="5"> <img src="pic7.png">  </td>
+    </tr>
+    <tr>
+        <td id="9"> <img src="pic8.png">  </td>
+        <td id="8"> <img src="pic9.png">  </td>
+        <td id="7"> <img src="pic10.png">  </td>
+        <td id="6"> <img src="pic11.png">  </td>             
+    </tr>
+</table>
+
+
+
