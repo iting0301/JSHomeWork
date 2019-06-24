@@ -8,33 +8,26 @@
     let n;
     let random;
     let timer;
+    let delay;
 
     function go1(){
         reset();
-        timer = setInterval(setColor, 1*100/2);
-        //alert(timer);
+        timer = setInterval(setColor, delay);
+        //alert(`time ${timer}`);
         }
 
     function setColor() {
-
-        if(count<=random){
-            
+        if(count<=random) {
             count++;
-            if(count<=11){
-                console.log(count);
-                if(count>0) document.getElementById(count-1).style.backgroundColor="white";
-                document.getElementById(count).style.backgroundColor="pink";
-            }else if(count>11){
-                console.log(count);
-                n=count%12;
-                if(n==0) {
-                    document.getElementById(11).style.backgroundColor="white"
-                }else{
-                    document.getElementById(n-1).style.backgroundColor="white"
-                }
-                document.getElementById(n).style.backgroundColor="pink";   
-            }
+            console.log(count);
+            n = count%12;
 
+            if(n==0){
+                document.getElementById(11).style.backgroundColor="white"
+            }else{
+                document.getElementById(n-1).style.backgroundColor="white";
+            }
+            document.getElementById(n).style.backgroundColor="pink";
         }
     }
 
@@ -43,6 +36,7 @@
         count = -1;
         random = Math.floor(Math.random()*(30-13+1))+13;
         console.log(random+1);
+        delay = 50;
         // https://stackoverflow.com/questions/8126466/how-do-i-reset-the-setinterval-timer
         clearInterval(timer);
     }
